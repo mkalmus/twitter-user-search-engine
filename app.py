@@ -8,11 +8,11 @@ if not pt.started():
     pt.init()
 
 
-index_ref = './pt_bio_index_baseline_positions/data.properties'
+index_ref = './bio_index_positions_final/data.properties'
 index_pos = pt.IndexFactory.of(index_ref)
 bm25_pos = pt.BatchRetrieve(index_pos, wmodel="BM25")
 
-author_df = pd.read_csv('all_authors_v3.csv')
+author_df = pd.read_csv('all_author_df.csv')
 author_df = author_df.drop('Unnamed: 0', axis=1).reset_index().rename(columns={'index': 'docno'})
 author_df['docno'] = author_df['docno'].astype(str)
 
